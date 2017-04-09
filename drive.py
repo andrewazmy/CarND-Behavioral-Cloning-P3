@@ -64,9 +64,10 @@ def telemetry(sid, data):
         steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
-
+        throttle = 0.2
         print(steering_angle, throttle)
         send_control(steering_angle, throttle)
+
 
         # save frame
         if args.image_folder != '':
@@ -109,7 +110,7 @@ if __name__ == '__main__':
         help='Path to image folder. This is where the images from the run will be saved.'
     )
     args = parser.parse_args()
-
+    print('parser done')
     # check that model Keras version is same as local Keras version
     f = h5py.File(args.model, mode='r')
     model_version = f.attrs.get('keras_version')
