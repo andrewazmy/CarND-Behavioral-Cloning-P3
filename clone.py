@@ -93,12 +93,12 @@ for f in files:
         left_image = cv2.resize(left_image[40:140, :], (64, 64))
         images.append(left_image)
         images_paths.append(left_current_path)
-        measurements.append(measurement + 0.25)
+        measurements.append(measurement + 0.22)
 
         right_image = cv2.resize(right_image[40:140, :], (64, 64))
         images.append(right_image)
         images_paths.append(right_current_path)
-        measurements.append(measurement - 0.25)
+        measurements.append(measurement - 0.22)
 
 X_train = np.array(images)
 y_train = np.array(measurements)
@@ -175,10 +175,10 @@ model = Nvidia((64,64,3))
 adam = Adam(lr=0.001)
 model.compile(optimizer=adam, loss='mse')
 model.summary()
-epochs = 20
-batch_size = 1024
+epochs = 25
+batch_size = 512
 model.fit(x=X_train, y=y_train, nb_epoch=epochs, batch_size=batch_size,  validation_split=0.2, shuffle=True)
-model.save('Nvidia_'+str(epochs)+'e_'+str(batch_size)+'.h5')
+model.save('Nvidia_'+str(epochs)+'e_'+str(batch_size)+'_022angleOffset.h5')
 # images_paths, images_paths_valid, measurements, measurements_valid = train_test_split(images_paths, measurements, test_size = 0.10, random_state = 100)
 
 # data_generator = data_generator(images_paths, measurements, 256)
