@@ -139,7 +139,6 @@ def LeNet():
 
 def Nvidia(input_shape=(160, 320, 3)):
     model = Sequential()
-    # model.add(Cropping2D(cropping=((40, 20), (0, 0)), input_shape=input_shape))
 
     model.add(Lambda(lambda x: x / 255.0 - 0.5, name="image_normalization", input_shape=input_shape))
 
@@ -151,8 +150,7 @@ def Nvidia(input_shape=(160, 320, 3)):
     model.add(ELU())
     model.add(Convolution2D(64, 3, 3, name="convolution_4", border_mode="valid", init='he_normal'))
     model.add(ELU())
-    # model.add(Convolution2D(64, 3, 3, name="convolution_5", border_mode="valid", init='he_normal'))
-    # model.add(ELU())
+
 
     model.add(Flatten())
 
@@ -173,21 +171,14 @@ def Nvidia(input_shape=(160, 320, 3)):
 
     return model
 
-# model = Nvidia()
-# model = LeNet()
-#
-# adam = Adam(lr=0.001)
-# model.compile(optimizer=adam, loss='mse')
-# model.summary()
-# model.fit(x=X_train, y=y_train, nb_epoch=10, batch_size=128,  validation_split=0.2, shuffle=True)
-# model.save('LeNet_50e_512.h5')
-
 model = Nvidia((64,64,3))
 adam = Adam(lr=0.001)
 model.compile(optimizer=adam, loss='mse')
 model.summary()
-model.fit(x=X_train, y=y_train, nb_epoch=20, batch_size=512,  validation_split=0.2, shuffle=True)
-model.save('Nvidia_20e_512.h5')
+epochs = 20
+batch_size = 1024
+model.fit(x=X_train, y=y_train, nb_epoch=epochs, batch_size=batch_size,  validation_split=0.2, shuffle=True)
+model.save('Nvidia_'+str(epochs)+'e_'+str(batch_size)+'.h5')
 # images_paths, images_paths_valid, measurements, measurements_valid = train_test_split(images_paths, measurements, test_size = 0.10, random_state = 100)
 
 # data_generator = data_generator(images_paths, measurements, 256)
