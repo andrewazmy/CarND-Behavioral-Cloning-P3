@@ -175,7 +175,7 @@ model = Nvidia((64,64,3))
 adam = Adam(lr=0.001)
 model.compile(optimizer=adam, loss='mse')
 model.summary()
-epochs = 25
+epochs = 20
 batch_size = 512
 model.fit(x=X_train, y=y_train, nb_epoch=epochs, batch_size=batch_size,  validation_split=0.2, shuffle=True)
 model.save('Nvidia_'+str(epochs)+'e_'+str(batch_size)+'_022angleOffset.h5')
