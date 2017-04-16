@@ -16,13 +16,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/forward.jpg "Forward"
-[image3]: ./examples/reverse.png "Reverse"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image3]: ./examples/reverse.jpg "Reverse"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -132,8 +128,6 @@ I then recorded three laps on track one in the reverse direction to further gene
 To augment the data sat, I also flipped images and angles thinking that this would give a wider range of examples for the model to train, and also reduce overfitting since such scenes do not exist on track 1.
 
 I have also used the left and right camera images to train the model. I have added the right camera image with a -0.22 offset in the steering angle, and the left camera image with a 0.22 offset in the steering angle.
-![alt text][image6]
-![alt text][image7]
 
 After the collection process, I had 46,000 data points. I then preprocessed this data by cropping 40 pixels off the top of the images to remove unnecessary details, and 20 pixels off the buttom to remove the vehicle hood. Afterwards, I resized the image to 64x64 to improve performance with square convulution kernels.
 
