@@ -106,7 +106,6 @@ y_train = np.array(measurements)
 
 from keras.models import Sequential
 from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Dropout, Cropping2D, Activation
-from keras.regularizers import l2, activity_l2
 from keras.optimizers import Adam
 from keras.layers.advanced_activations import ELU
 from sklearn.model_selection import train_test_split
@@ -150,6 +149,9 @@ def Nvidia(input_shape=(160, 320, 3)):
     model.add(ELU())
     model.add(Convolution2D(64, 3, 3, name="convolution_4", border_mode="valid", init='he_normal'))
     model.add(ELU())
+    # model.add(Convolution2D(64, 3, 3, name="convolution_4", border_mode="valid", init='he_normal'))
+    # model.add(ELU())
+
 
 
     model.add(Flatten())
