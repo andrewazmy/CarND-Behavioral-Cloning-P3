@@ -31,13 +31,16 @@ The goals / steps of this project are the following:
 My project includes the following files:
 * clone.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
-* Nvidia20e_512\Nvidia20e_512.h5 containing a trained convolution neural network 
+* Nvidia_20e_512_022angleOffset folder
+  * Nvidia_20e_512_022angleOffset.h5 containing a trained convolution neural network 
+  * Nvidia_20e_512_022angleOffset_screen.mp4 containing a screen recorded video of a full lap on track 1.
+  * Nvidia_20e_512_022angleOffset_video.mp4 containing the output of video.py for the aboce full lap.
 * README.md summarizing the results
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py Nvidia20e_512\Nvidia20e_512.h5
+python drive.py Nvidia_20e_512_022angleOffset\Nvidia_20e_512_022angleOffset.h5
 ```
 
 #### 3. Submission code is usable and readable
