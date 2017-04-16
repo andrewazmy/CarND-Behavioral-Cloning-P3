@@ -149,7 +149,7 @@ def Nvidia(input_shape=(160, 320, 3)):
     model.add(ELU())
     model.add(Convolution2D(64, 3, 3, name="convolution_4", border_mode="valid", init='he_normal'))
     model.add(ELU())
-    # model.add(Convolution2D(64, 3, 3, name="convolution_4", border_mode="valid", init='he_normal'))
+    # model.add(Convolution2D(64, 3, 3, name="convolution_5", border_mode="valid", init='he_normal'))
     # model.add(ELU())
 
 
